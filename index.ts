@@ -1,1 +1,2 @@
-export default require('./src/js/MJRefreshNativeComponent').default
+import MJRefresh from './src/js/MJRefreshNativeComponent'
+export default MJRefresh
