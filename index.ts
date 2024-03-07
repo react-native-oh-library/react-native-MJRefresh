@@ -1,2 +1,1 @@
-import MJRefresh from './src/js/MJRefreshNativeComponent'
-export default MJRefresh
+export { default as MJRefreshControl } from "./MJRefreshControl";

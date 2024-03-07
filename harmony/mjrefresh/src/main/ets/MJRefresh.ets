@@ -11,11 +11,12 @@ export interface MJRefreshProps extends ViewBaseProps {
   onReleaseToRefresh: voidDataFun,
   onPulling: voidDataFun
 }
+
 export type MJRefreshDescriptor = Descriptor<"MJRefresh", MJRefreshProps>;
 
 @Component
 export struct MJRefresh {
-  @State isRefreshing: boolean = false
+  @State isRefreshing: boolean = false;
   @State pullRefreshText: string = '下拉刷新';
   @State pullRefreshImage: Resource = $r("app.media.ic_gallery_sort_down");
   ctx!: RNOHContext;
@@ -23,6 +24,7 @@ export struct MJRefresh {
   @BuilderParam buildCustomComponent: (componentBuilderContext: ComponentBuilderContext) => void;
   @State descriptor: MJRefreshDescriptor = {} as MJRefreshDescriptor;
   private unregisterDescriptorChangesListener?: () => void = undefined;
+  private cleanupCommandCallback?: () => void = undefined
 
   aboutToAppear() {
     this.descriptor = this.ctx.descriptorRegistry.getDescriptor<MJRefreshDescriptor>(this.tag);
@@ -31,6 +33,18 @@ export struct MJRefresh {
         this.descriptor = (newDescriptor as MJRefreshDescriptor);
       }
     )
+    this.cleanupCommandCallback = this.ctx.commandDispatcher.registerCommandCallback(
+      this.tag,
+      (command, args: ESObject[]) => {
+        if (command === 'finishRefresh') {
+          this.isRefreshing = false;
+          console.log('------------ enter harmony finishRefresh')
+        }
+        if (command === 'beginRefresh') {
+          this.isRefreshing = true;
+          console.log('------------ enter harmony beginRefresh')
+        }
+      });
   }
 
   aboutToDisappear() {
@@ -130,9 +144,6 @@ export struct MJRefresh {
           console.info('Refresh onStatueChange state is ' + refreshStatus);
         })
         .onRefreshing(() => {
-          setTimeout(() => {
-            this.isRefreshing = false;
-          }, 1000)
         })
         .height('80%').width('100%');
       }

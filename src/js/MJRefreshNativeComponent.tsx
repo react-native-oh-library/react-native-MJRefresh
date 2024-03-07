@@ -13,16 +13,27 @@ export interface NativeProps extends ViewProps {
   onRefresh?:DirectEventHandler<VoidEventData>,
   onRefreshIdle?:DirectEventHandler<VoidEventData>,
   onReleaseToRefresh?:DirectEventHandler<VoidEventData>,
-  onPulling?:DirectEventHandler<EventData>
+  onPulling?:DirectEventHandler<VoidEventData>
   // 添加其它 props
 }
-export type EventData = Readonly<{
-  percent: Float;
-  offset: Float;
-  headerHeight: Float;
-}>;
+
 export default codegenNativeComponent<NativeProps>(
   'MJRefresh',
 ) as HostComponent<NativeProps>;
 export type VoidEventData = Readonly<{}>;
 
+type MjRefreshControlType = HostComponent<NativeProps>;
+export interface NativeCommands {
+  finishRefresh: (
+    viewRef: React.ElementRef<MjRefreshControlType>
+  ) => void,
+  beginRefresh: (
+    viewRef: React.ElementRef<MjRefreshControlType>
+  ) => void
+}
+export const finishRefreshCommands: NativeCommands = codegenNativeCommands<NativeCommands>({
+  supportedCommands: ["finishRefresh"],
+});
+export const beginRefreshCommands: NativeCommands = codegenNativeCommands<NativeCommands>({
+  supportedCommands: ["beginRefresh"],
+});
