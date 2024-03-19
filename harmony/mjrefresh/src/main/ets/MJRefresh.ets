@@ -48,7 +48,7 @@ export struct MJRefresh {
   @BuilderParam buildCustomComponent: (componentBuilderContext: ComponentBuilderContext) => void;
   @State descriptor: MJRefreshDescriptor = {} as MJRefreshDescriptor;
   private unregisterDescriptorChangesListener?: () => void = undefined;
-  private cleanupCommandCallback?: () => void = undefined
+  private cleanupCommandCallback?: () => void = undefined;
 
   aboutToAppear() {
     this.descriptor = this.ctx.descriptorRegistry.getDescriptor<MJRefreshDescriptor>(this.tag);
@@ -62,18 +62,17 @@ export struct MJRefresh {
       (command, args: ESObject[]) => {
         if (command === 'finishRefresh') {
           this.isRefreshing = false;
-          console.log('------------ enter harmony finishRefresh')
+          console.log('------------ enter harmony finishRefresh');
         }
         if (command === 'beginRefresh') {
           this.isRefreshing = true;
-          console.log('------------ enter harmony beginRefresh')
+          console.log('------------ enter harmony beginRefresh');
         }
       });
   }
 
   aboutToDisappear() {
     this.unregisterDescriptorChangesListener?.();
-
   }
 
   onRefresh(): void {
@@ -138,7 +137,7 @@ export struct MJRefresh {
         this.pullRefreshText = '正在刷新';
         break;
       case 3:
-        this.isRefreshing = true
+        this.isRefreshing = true;
         break;
     }
   }
