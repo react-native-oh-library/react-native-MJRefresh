@@ -24,6 +24,9 @@
 
 import { Descriptor, ComponentBuilderContext, ViewBaseProps } from 'rnoh';
 import { RNOHContext, RNViewBase } from 'rnoh'
+import Logger from './Logger';
+
+const TAG: string = "[RNOH] MJRefresh"
 
 export const MJREFRESH_TYPE: string = "MJRefresh"
 
@@ -62,11 +65,11 @@ export struct MJRefresh {
       (command, args: ESObject[]) => {
         if (command === 'finishRefresh') {
           this.isRefreshing = false;
-          console.log('------------ enter harmony finishRefresh');
+          Logger.info(TAG, '------------ enter harmony finishRefresh');
         }
         if (command === 'beginRefresh') {
           this.isRefreshing = true;
-          console.log('------------ enter harmony beginRefresh');
+          Logger.info(TAG, '------------ enter harmony beginRefresh');
         }
       });
   }
@@ -164,7 +167,7 @@ export struct MJRefresh {
             this.pullRefreshState(3);
             this.onRefreshIdle();
           }
-          console.info('Refresh onStatueChange state is ' + refreshStatus);
+          Logger.info(TAG, 'Refresh onStatueChange state is ' + refreshStatus);
         })
         .onRefreshing(() => {
         })
