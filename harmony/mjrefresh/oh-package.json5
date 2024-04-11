@@ -1,15 +1,12 @@
 {
-  "name": "rnoh-mjrefresh",
-  "version": "0.7.0-0.0.1",
+  "name": "mjrefresh",
+  "version": "0.7.0-1.0.0",
   "description": "Please describe the basic information.",
   "main": "Index.ets",
   "author": "",
-  "license": "ISC",
-  type: 'module',
+  "license": "Apache-2.0",
   "dependencies": {
-    "rnoh": "file:../rnoh"
-  },
-  "devDependencies": {
     "rnoh": "file:../rnoh"
   }
 }
+

@@ -1,6 +1,6 @@
 {
   "name": "@react-native-oh-tpl/react-native-mjrefresh",
-  "version": "0.7.0",
+  "version": "0.7.0-0.0.2",
   "description": "",
   "main": "index.ts",
   "scripts": {
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/react-native-studio/react-native-MJRefresh.git"
+  },
+   "harmony": {
+    "alias": "react-native-mjrefresh"
   },
   "keywords": [
     "mjrefresh",
