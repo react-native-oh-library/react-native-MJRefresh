@@ -27,11 +27,28 @@
 #include "ComponentDescriptors.h"
 #include "MJRefreshJSIBinder.h"
 #include "MJRefreshEventRequestHandler.h"
-
+#include "MjRefreshComponentInstance.h"
 namespace rnoh {
+    class MJRefreshComponentInstanceFactoryDelegate : public ComponentInstanceFactoryDelegate {
+    public:
+        using ComponentInstanceFactoryDelegate::ComponentInstanceFactoryDelegate;
+
+        ComponentInstance::Shared create(ComponentInstance::Context ctx) override {
+            if (ctx.componentName == "MJRefresh") {
+                return std::make_shared<MjRefreshComponentInstance>(std::move(ctx));
+            }
+            return nullptr;
+        }
+    };
+
     class MJRefreshPackage : public Package {
     public:
         MJRefreshPackage(Package::Context ctx) : Package(ctx) {}
+
+        ComponentInstanceFactoryDelegate::Shared createComponentInstanceFactoryDelegate() override {
+            return std::make_shared<MJRefreshComponentInstanceFactoryDelegate>();
+        }
+
         std::vector<facebook::react::ComponentDescriptorProvider> createComponentDescriptorProviders() override {
             return {
                 facebook::react::concreteComponentDescriptorProvider<facebook::react::MJRefreshComponentDescriptor>(),
@@ -44,6 +61,4 @@ namespace rnoh {
             return {std::make_shared<MJRefreshEventRequestHandler>()};
         }
     };
-} 
-
-
+} // namespace rnoh

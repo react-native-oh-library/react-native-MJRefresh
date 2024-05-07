@@ -60,7 +60,7 @@ export struct MJRefresh {
         this.descriptor = (newDescriptor as MJRefreshDescriptor);
       }
     )
-    this.cleanupCommandCallback = this.ctx.commandDispatcher.registerCommandCallback(
+    this.cleanupCommandCallback = this.ctx.componentCommandReceiver.registerCommandCallback(
       this.tag,
       (command, args: ESObject[]) => {
         if (command === 'finishRefresh') {

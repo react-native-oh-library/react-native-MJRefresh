@@ -1,6 +1,7 @@
 import React from "react";
 import MJRefresh, { finishRefreshCommands,beginRefreshCommands, NativeProps as Props, VoidEventData } from "./src/js/MJRefreshNativeComponent";
 import type * as ReactNative from "react-native";
+import { View } from 'react-native';
 type MJRefreshControlProps = Props & {
   HeaderComponent?: React.ReactNode;
   renderHeader?: () => React.ReactElement | React.ReactElement;
@@ -64,6 +65,9 @@ export class MJRefreshControl extends React.Component<MJRefreshControlProps>  {
 
         {...nativeProps}
       >
+		<View style={{height:0}}>
+		{this.Props.HeaderComponent}
+		</View>
         {this.props.children}
       </MJRefresh>
     );
