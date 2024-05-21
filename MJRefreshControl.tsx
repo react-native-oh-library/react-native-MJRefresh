@@ -66,7 +66,7 @@ export class MJRefreshControl extends React.Component<MJRefreshControlProps>  {
         {...nativeProps}
       >
 		<View style={{height:0}}>
-		{this.Props.HeaderComponent}
+		{this.props.HeaderComponent}
 		</View>
         {this.props.children}
       </MJRefresh>

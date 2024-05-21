@@ -22,8 +22,8 @@
  * SOFTWARE.
  */
 
-import { Descriptor, ComponentBuilderContext, ViewBaseProps } from 'rnoh';
-import { RNOHContext, RNViewBase } from 'rnoh'
+import { Descriptor, ComponentBuilderContext, ViewBaseProps } from '@rnoh/react-native-openharmony';
+import { RNOHContext, RNViewBase } from '@rnoh/react-native-openharmony'
 import Logger from './Logger';
 
 const TAG: string = "[RNOH] MJRefresh"

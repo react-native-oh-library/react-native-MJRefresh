@@ -27,7 +27,7 @@
 
 #include "MjRefreshNode.h"
 #include "RNOH/CppComponentInstance.h"
-#include "RNOH/arkui/StackNode.h"
+#include "MjRefreshStackNode.h"
 #include "ShadowNodes.h"
 
 
@@ -35,7 +35,7 @@ namespace rnoh {
     class MjRefreshComponentInstance: public CppComponentInstance<facebook::react::MJRefreshShadowNode>, public RefreshNodeDelegate {
     private:
         MjRefreshNode m_refreshNode;
-        StackNode m_rowStyleNode;
+        MjRefreshStackNode m_rowStyleNode;
     public:
         MjRefreshComponentInstance(Context context);
 
