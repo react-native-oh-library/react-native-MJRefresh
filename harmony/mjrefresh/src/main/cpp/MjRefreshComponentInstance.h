@@ -50,6 +50,8 @@ namespace rnoh {
         void onRefresh() override;
 
         void pullRefreshStateChange(int32_t state) override;
+        
+        bool isRefreshControlComponentInstance() const {return true;};
     };
 } // namespace rnoh
 
