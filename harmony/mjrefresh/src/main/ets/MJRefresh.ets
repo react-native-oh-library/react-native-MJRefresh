@@ -22,8 +22,8 @@
  * SOFTWARE.
  */
 
-import { Descriptor, ComponentBuilderContext, ViewBaseProps } from 'rnoh';
-import { RNOHContext, RNViewBase } from 'rnoh'
+import { Descriptor, ComponentBuilderContext, ViewBaseProps } from '@rnoh/react-native-openharmony';
+import { RNOHContext, RNViewBase } from '@rnoh/react-native-openharmony'
 import Logger from './Logger';
 
 const TAG: string = "[RNOH] MJRefresh"
@@ -60,7 +60,7 @@ export struct MJRefresh {
         this.descriptor = (newDescriptor as MJRefreshDescriptor);
       }
     )
-    this.cleanupCommandCallback = this.ctx.commandDispatcher.registerCommandCallback(
+    this.cleanupCommandCallback = this.ctx.componentCommandReceiver.registerCommandCallback(
       this.tag,
       (command, args: ESObject[]) => {
         if (command === 'finishRefresh') {
