@@ -1,12 +1,12 @@
 {
-  "name": "mjrefresh",
+  "name": "@react-native-oh-tpl/react-native-mjrefresh",
   "version": "0.7.0-1.0.0",
   "description": "Please describe the basic information.",
   "main": "Index.ets",
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "rnoh": "file:../rnoh"
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony"
   }
 }
 
