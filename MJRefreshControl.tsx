@@ -1,5 +1,5 @@
 import React from "react";
-import MJRefresh, { finishRefreshCommands,beginRefreshCommands, NativeProps as Props, VoidEventData } from "./src/js/MJRefreshNativeComponent";
+import MJRefresh, { finishRefreshCommands,beginRefreshCommands, NativeProps as Props, VoidEventData, OnPullingEventData } from "./src/js/MJRefreshNativeComponent";
 import type * as ReactNative from "react-native";
 import { View } from 'react-native';
 type MJRefreshControlProps = Props & {
@@ -14,7 +14,7 @@ export class MJRefreshControl extends React.Component<MJRefreshControlProps>  {
     let { onRefresh } = this.props;
     onRefresh && onRefresh(e);
   }
-  _onMJPulling = (e: ReactNative.NativeSyntheticEvent<VoidEventData>) => {
+  _onMJPulling = (e: ReactNative.NativeSyntheticEvent<OnPullingEventData>) => {
     let { onPulling } = this.props;
     onPulling && onPulling(e);
   }

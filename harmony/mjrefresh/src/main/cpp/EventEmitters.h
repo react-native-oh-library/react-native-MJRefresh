@@ -32,6 +32,7 @@
  */
 #pragma once
 
+#include <bits/alltypes.h>
 #include <react/renderer/components/view/ViewEventEmitter.h>
 #include <jsi/jsi.h>
 
@@ -54,7 +55,7 @@ class JSI_EXPORT MJRefreshEventEmitter : public ViewEventEmitter {
       };
 
     struct OnPulling {
-
+        Float percent;
       };
     void onRefresh(OnRefresh value) const;
 

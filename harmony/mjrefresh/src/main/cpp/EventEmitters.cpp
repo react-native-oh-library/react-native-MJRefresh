@@ -65,6 +65,7 @@ void MJRefreshEventEmitter::onReleaseToRefresh(OnReleaseToRefresh $event) const 
 void MJRefreshEventEmitter::onPulling(OnPulling $event) const {
   dispatchEvent("onPulling", [$event=std::move($event)](jsi::Runtime &runtime) {
     auto $payload = jsi::Object(runtime);
+    $payload.setProperty(runtime, "percent", $event.percent);
     return $payload;
   });
 }
