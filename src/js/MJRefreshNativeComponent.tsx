@@ -9,11 +9,15 @@ import type {
   Float
   } from 'react-native/Libraries/Types/CodegenTypes';
   
+export type OnPullingEventData = Readonly<{
+    percent: Float;
+  }>
+
 export interface NativeProps extends ViewProps {
   onRefresh?:DirectEventHandler<VoidEventData>,
   onRefreshIdle?:DirectEventHandler<VoidEventData>,
   onReleaseToRefresh?:DirectEventHandler<VoidEventData>,
-  onPulling?:DirectEventHandler<VoidEventData>
+  onPulling?:DirectEventHandler<OnPullingEventData>
   // 添加其它 props
 }
 

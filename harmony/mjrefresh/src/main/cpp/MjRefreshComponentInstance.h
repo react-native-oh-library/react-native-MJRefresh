@@ -36,6 +36,7 @@ namespace rnoh {
     private:
         MjRefreshNode m_refreshNode;
         MjRefreshStackNode m_rowStyleNode;
+        bool idle = true;
     public:
         MjRefreshComponentInstance(Context context);
 
@@ -49,7 +50,7 @@ namespace rnoh {
     
         void onRefresh() override;
 
-        void pullRefreshStateChange(int32_t state) override;
+        void pullRefreshStateChange(int32_t state, float_t percent) override;
         
         bool isRefreshControlComponentInstance() const {return true;};
     };

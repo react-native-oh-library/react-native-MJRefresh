@@ -24,7 +24,7 @@
 #include "MjRefreshNode.h"
 #include <arkui/native_node.h>
 
-static constexpr ArkUI_NodeEventType REFRESH_NODE_EVENT_TYPES[] = {NODE_REFRESH_ON_REFRESH, NODE_REFRESH_STATE_CHANGE};
+static constexpr ArkUI_NodeEventType REFRESH_NODE_EVENT_TYPES[] = {NODE_REFRESH_ON_REFRESH, NODE_REFRESH_STATE_CHANGE, NODE_REFRESH_ON_OFFSET_CHANGE};
 
 namespace rnoh {
     MjRefreshNode::MjRefreshNode()
@@ -73,9 +73,21 @@ namespace rnoh {
             }
         }
 
-        if (eventType == ArkUI_NodeEventType::NODE_REFRESH_STATE_CHANGE) {
-            if (m_refreshNodeDelegate != nullptr) {
-                m_refreshNodeDelegate->pullRefreshStateChange(eventArgs->i32);
+        if (eventType == ArkUI_NodeEventType::NODE_REFRESH_STATE_CHANGE && m_refreshNodeDelegate) {
+            switch (eventArgs->i32) {
+            case 2:
+            case 3:
+            case 4: {
+                m_refreshNodeDelegate->pullRefreshStateChange(eventArgs->i32, 0);
+                break;
+            }
+            }
+        }
+
+        if (eventType == ArkUI_NodeEventType::NODE_REFRESH_ON_OFFSET_CHANGE && m_refreshNodeDelegate) {
+            if (eventArgs->f32 > 0 && eventArgs->f32 <= 64) {
+                float_t percent = eventArgs[0].f32 / 64;
+                m_refreshNodeDelegate->pullRefreshStateChange(1, percent);
             }
         }
     }

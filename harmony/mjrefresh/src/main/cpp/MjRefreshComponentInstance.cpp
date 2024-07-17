@@ -23,9 +23,9 @@
  */
 
 #include "MjRefreshComponentInstance.h"
+#include <bits/alltypes.h>
 namespace rnoh {
     MjRefreshComponentInstance::MjRefreshComponentInstance(Context context) : CppComponentInstance(std::move(context)) {
-        LOG(INFO) << "[clx] <MjRefreshComponentInstance::MjRefreshComponentInstance>";
         m_refreshNode.setRefreshNodeDelegate(this);
     }
 
@@ -46,7 +46,6 @@ namespace rnoh {
     MjRefreshNode &MjRefreshComponentInstance::getLocalRootArkUINode() { return m_refreshNode; }
 
     void MjRefreshComponentInstance::onRefresh() {
-        LOG(INFO) << "[clx] <MjRefreshComponentInstance::onRefresh>";
     }
 
     void MjRefreshComponentInstance::handleCommand(const std::string &commandName, const folly::dynamic &args) {
@@ -59,10 +58,14 @@ namespace rnoh {
         }
     }
 
-    void MjRefreshComponentInstance::pullRefreshStateChange(int32_t state) {
-        switch (state) { 
+    void MjRefreshComponentInstance::pullRefreshStateChange(int32_t state, float_t percent) {
+        switch (state) {
         case 1: {
-            m_eventEmitter->onPulling({});
+            if (idle) {
+                facebook::react::MJRefreshEventEmitter::OnPulling event{};
+                event.percent = (int)(100.0 * percent + 0.5) / 100.0;
+                m_eventEmitter->onPulling({event});
+            }
             break;
         }
         case 2: {
@@ -70,11 +73,13 @@ namespace rnoh {
             break;
         }
         case 3: {
+            idle = false;
             m_eventEmitter->onRefresh({});
             break;
         }
         case 4: {
             m_eventEmitter->onRefreshIdle({});
+            idle = true;
             break;
         }
         }
