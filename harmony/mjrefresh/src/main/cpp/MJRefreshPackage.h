@@ -34,7 +34,7 @@ namespace rnoh {
         using ComponentInstanceFactoryDelegate::ComponentInstanceFactoryDelegate;
 
         ComponentInstance::Shared create(ComponentInstance::Context ctx) override {
-            if (ctx.componentName == "MJRefresh") {
+            if (ctx.componentName == "MJRefreshView") {
                 return std::make_shared<MjRefreshComponentInstance>(std::move(ctx));
             }
             return nullptr;
@@ -55,7 +55,7 @@ namespace rnoh {
             };
         }
         ComponentJSIBinderByString createComponentJSIBinderByName() override {
-            return {{"MJRefresh", std::make_shared<MJRefreshJSIBinder>()}};
+            return {{"MJRefreshView", std::make_shared<MJRefreshJSIBinder>()}};
         }
         EventEmitRequestHandlers createEventEmitRequestHandlers() override {
             return {std::make_shared<MJRefreshEventRequestHandler>()};
