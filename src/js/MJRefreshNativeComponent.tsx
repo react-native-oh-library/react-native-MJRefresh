@@ -22,7 +22,7 @@ export interface NativeProps extends ViewProps {
 }
 
 export default codegenNativeComponent<NativeProps>(
-  'MJRefresh',
+  'MJRefreshView',
 ) as HostComponent<NativeProps>;
 export type VoidEventData = Readonly<{}>;
 

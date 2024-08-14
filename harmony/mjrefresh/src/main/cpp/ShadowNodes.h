@@ -43,7 +43,6 @@ namespace facebook {
 namespace react {
 
 JSI_EXPORT extern const char MJRefreshComponentName[];
-JSI_EXPORT extern const char MJScrollViewComponentName[];
 
 /*
  * `ShadowNode` for <MJRefresh> component.

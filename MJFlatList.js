@@ -18,4 +18,4 @@ class MJFlatList extends FlatList {
     }
 }
 
-module.exports = Platform.OS === 'ios' ? MJFlatList : FlatList;
+module.exports = (Platform.OS === 'ios' || Platform.OS === 'harmony') ? MJFlatList : FlatList;

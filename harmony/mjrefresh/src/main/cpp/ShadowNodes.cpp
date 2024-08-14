@@ -36,7 +36,7 @@
 namespace facebook {
 namespace react {
 
-extern const char MJRefreshComponentName[] = "MJRefresh";
+extern const char MJRefreshComponentName[] = "MJRefreshView";
 
 } // namespace react
 } // namespace facebook
