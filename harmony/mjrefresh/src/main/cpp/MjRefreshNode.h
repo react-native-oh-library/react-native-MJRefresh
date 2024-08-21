@@ -30,7 +30,7 @@ class RefreshNodeDelegate {
 public:
     virtual ~RefreshNodeDelegate() = default;
     virtual void onRefresh(){};
-    virtual void pullRefreshStateChange(int32_t state, float_t percent);
+    virtual void pullRefreshStateChange(int32_t state, float_t percent){};
 };
 
 namespace rnoh {
