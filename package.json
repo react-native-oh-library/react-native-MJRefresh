@@ -1,6 +1,6 @@
 {
   "name": "@react-native-oh-tpl/react-native-mjrefresh",
-  "version": "0.7.0-0.1.1",
+  "version": "0.7.0-0.1.2",
   "description": "",
   "main": "MJRefresh.js",
   "scripts": {
