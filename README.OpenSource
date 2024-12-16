@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "react-native-mjrefresh",
+        "License": "Apache-2.0 license",
+        "License File": "LICENSE",
+        "Version Number": "0.7.0",
+        "Owner" : "xiafeng@huawei.com",
+        "Upstream URL": "https://github.com/react-native-studio/react-native-MJRefresh",
+        "Description": "可提供自定义的弹性刷新"
+    }
+]
