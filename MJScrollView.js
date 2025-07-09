@@ -36,13 +36,13 @@ import splitLayoutProps from "react-native/Libraries/StyleSheet/splitLayoutProps
 import StyleSheet from "react-native/Libraries/StyleSheet/StyleSheet";
 import Dimensions from "react-native/Libraries/Utilities/Dimensions";
 import dismissKeyboard from "react-native/Libraries/Utilities/dismissKeyboard";
-import Platform from "react-native-harmony/Libraries/Utilities/Platform";
+import Platform from "@react-native-oh/react-native-harmony/Libraries/Utilities/Platform";
 import Keyboard from "react-native/Libraries/Components/Keyboard/Keyboard";
-import TextInputState from "react-native-harmony/Libraries/Components/TextInput/TextInputState.harmony";
+import TextInputState from "@react-native-oh/react-native-harmony/Libraries/Components/TextInput/TextInputState.harmony";
 import View from "react-native/Libraries/Components/View/View";
 import AndroidHorizontalScrollContentViewNativeComponent from "react-native/Libraries/Components/ScrollView/AndroidHorizontalScrollContentViewNativeComponent";
 import AndroidHorizontalScrollViewNativeComponent from "react-native/Libraries/Components/ScrollView/AndroidHorizontalScrollViewNativeComponent";
-import processDecelerationRate from "react-native-harmony/Libraries/Components/ScrollView/processDecelerationRate.harmony";
+import processDecelerationRate from "@react-native-oh/react-native-harmony/Libraries/Components/ScrollView/processDecelerationRate.harmony";
 import ScrollContentViewNativeComponent from "react-native/Libraries/Components/ScrollView/ScrollContentViewNativeComponent";
 import Commands from "react-native/Libraries/Components/ScrollView/ScrollViewCommands";
 import ScrollViewContext, {
