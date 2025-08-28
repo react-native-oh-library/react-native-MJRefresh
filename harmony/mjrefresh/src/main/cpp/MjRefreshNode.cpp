@@ -76,6 +76,7 @@ namespace rnoh {
             switch (eventArgs->i32) {
             case 1: {
                 m_refreshingState = false;
+                break;
             }
             case 2:
             case 3:
