@@ -72,9 +72,11 @@ namespace rnoh {
                 m_refreshNodeDelegate->onRefresh();
             }
         }
-
         if (eventType == ArkUI_NodeEventType::NODE_REFRESH_STATE_CHANGE && m_refreshNodeDelegate) {
             switch (eventArgs->i32) {
+            case 1: {
+                m_refreshingState = false;
+            }
             case 2:
             case 3:
             case 4: {
@@ -83,7 +85,12 @@ namespace rnoh {
             }
             }
         }
-
+        if (eventArgs->i32 == 3) {
+            m_refreshingState = true;
+        }
+        if (m_refreshingState) {
+           return;
+        }
         if (eventType == ArkUI_NodeEventType::NODE_REFRESH_ON_OFFSET_CHANGE && m_refreshNodeDelegate) {
             if (eventArgs->f32 > 0 && eventArgs->f32 <= 64) {
                 float_t percent = eventArgs[0].f32 / 64;
