@@ -35,9 +35,6 @@ export interface NativeCommands {
     viewRef: React.ElementRef<MjRefreshControlType>
   ) => void
 }
-export const finishRefreshCommands: NativeCommands = codegenNativeCommands<NativeCommands>({
-  supportedCommands: ["finishRefresh"],
-});
-export const beginRefreshCommands: NativeCommands = codegenNativeCommands<NativeCommands>({
-  supportedCommands: ["beginRefresh"],
+export const Commands: NativeCommands = codegenNativeCommands<NativeCommands>({
+  supportedCommands: ["finishRefresh", "beginRefresh"],
 });

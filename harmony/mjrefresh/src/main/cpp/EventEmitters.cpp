@@ -39,7 +39,7 @@ namespace facebook {
 namespace react {
 
 void MJRefreshEventEmitter::onRefresh(OnRefresh event) const {
-    dispatchEvent("onRefresh", [event = std::move(event)](jsi::Runtime &runtime) {
+    dispatchEvent("Refresh", [event = std::move(event)](jsi::Runtime &runtime) {
         auto payload = jsi::Object(runtime);
         return payload;
     });
@@ -47,7 +47,7 @@ void MJRefreshEventEmitter::onRefresh(OnRefresh event) const {
 
 
 void MJRefreshEventEmitter::onRefreshIdle(OnRefreshIdle $event) const {
-  dispatchEvent("onRefreshIdle", [](jsi::Runtime &runtime) {
+  dispatchEvent("RefreshIdle", [](jsi::Runtime &runtime) {
     auto $payload = jsi::Object(runtime);
     return $payload;
   });
@@ -55,7 +55,7 @@ void MJRefreshEventEmitter::onRefreshIdle(OnRefreshIdle $event) const {
 
 
 void MJRefreshEventEmitter::onReleaseToRefresh(OnReleaseToRefresh $event) const {
-  dispatchEvent("onReleaseToRefresh", [](jsi::Runtime &runtime) {
+  dispatchEvent("ReleaseToRefresh", [](jsi::Runtime &runtime) {
     auto $payload = jsi::Object(runtime);
     return $payload;
   });
@@ -63,7 +63,7 @@ void MJRefreshEventEmitter::onReleaseToRefresh(OnReleaseToRefresh $event) const 
 
 
 void MJRefreshEventEmitter::onPulling(OnPulling $event) const {
-  dispatchEvent("onPulling", [$event=std::move($event)](jsi::Runtime &runtime) {
+  dispatchEvent("Pulling", [$event=std::move($event)](jsi::Runtime &runtime) {
     auto $payload = jsi::Object(runtime);
     $payload.setProperty(runtime, "percent", $event.percent);
     return $payload;

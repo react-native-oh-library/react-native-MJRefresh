@@ -31,10 +31,10 @@ class MJRefreshJSIBinder : public ViewComponentJSIBinder {
     facebook::jsi::Object createDirectEventTypes(facebook::jsi::Runtime &rt) override
     {
         facebook::jsi::Object events(rt);
-        events.setProperty(rt, "topOnRefresh", createDirectEvent(rt, "onRefresh"));
-        events.setProperty(rt, "topOnRefreshIdle", createDirectEvent(rt, "onRefreshIdle"));
-        events.setProperty(rt, "topOnReleaseToRefresh", createDirectEvent(rt, "onReleaseToRefresh"));
-        events.setProperty(rt, "topOnPulling", createDirectEvent(rt, "onPulling"));
+        events.setProperty(rt, "topRefresh", createDirectEvent(rt, "onRefresh"));
+        events.setProperty(rt, "topRefreshIdle", createDirectEvent(rt, "onRefreshIdle"));
+        events.setProperty(rt, "topReleaseToRefresh", createDirectEvent(rt, "onReleaseToRefresh"));
+        events.setProperty(rt, "topPulling", createDirectEvent(rt, "onPulling"));
         return events;
     }
 };

@@ -38,7 +38,7 @@ import Dimensions from "react-native/Libraries/Utilities/Dimensions";
 import dismissKeyboard from "react-native/Libraries/Utilities/dismissKeyboard";
 import Platform from "@react-native-oh/react-native-harmony/Libraries/Utilities/Platform";
 import Keyboard from "react-native/Libraries/Components/Keyboard/Keyboard";
-import TextInputState from "@react-native-oh/react-native-harmony/Libraries/Components/TextInput/TextInputState.harmony";
+import TextInputState from "@react-native-oh/react-native-harmony/Libraries/Components/TextInput/TextInputState";
 import View from "react-native/Libraries/Components/View/View";
 import AndroidHorizontalScrollContentViewNativeComponent from "react-native/Libraries/Components/ScrollView/AndroidHorizontalScrollContentViewNativeComponent";
 import AndroidHorizontalScrollViewNativeComponent from "react-native/Libraries/Components/ScrollView/AndroidHorizontalScrollViewNativeComponent";
