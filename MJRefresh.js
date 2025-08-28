@@ -1,6 +1,6 @@
 import React from 'react';
 import * as ReactNative from "react-native";
-import MJRefreshView, { finishRefreshCommands, beginRefreshCommands, NativeProps, VoidEventData, OnPullingEventData } from "./src/js/MJRefreshNativeComponent";
+import MJRefreshView, { Commands, NativeProps, VoidEventData, OnPullingEventData } from "./src/js/MJRefreshNativeComponent";
 import MJScrollView from './MJScrollView'
 import MJFlatlist from './MJFlatList'
 
@@ -28,7 +28,7 @@ class MJRefresh extends React.Component<NativeProps>  {
     ) => {
         console.log("--------------------enter finishRefresh function")
         if (this.mjRefreshRef) {
-            finishRefreshCommands.finishRefresh(
+            Commands.finishRefresh(
                 this.mjRefreshRef
             );
         }
@@ -38,7 +38,7 @@ class MJRefresh extends React.Component<NativeProps>  {
     ) => {
         console.log("--------------------enter beginRefresh function")
         if (this.mjRefreshRef) {
-            beginRefreshCommands.beginRefresh(
+            Commands.beginRefresh(
                 this.mjRefreshRef
             );
         }
