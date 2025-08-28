@@ -1848,24 +1848,43 @@ class MjScrollView extends React.Component<Props, State> {
     );
 
     if (refreshControl) {
-        // RNOH: patch - use Android implementation
-        const { outer, inner } = splitLayoutProps(flattenStyle(props.style));
-        return React.cloneElement(
-          refreshControl,
-          { style: StyleSheet.compose(baseStyle, outer) },
-          <View>
-          {refreshControl.props.children}
-          <NativeDirectionalScrollView
+      // RNOH: patch - use Android implementation
+      const { outer, inner } = splitLayoutProps(flattenStyle(props.style));
+
+      const children = [
+        <NativeDirectionalScrollView
+          key="scrollview"
           {...props}
           style={StyleSheet.compose(baseStyle, inner)}
           ref={scrollViewRef}
         >
           {contentContainer}
-        </NativeDirectionalScrollView>
-          </View>
-         
+        </NativeDirectionalScrollView>,
+      ];
+
+      if (refreshControl.props.children) {
+        children.push(
+          React.cloneElement(refreshControl.props.children, {
+            key: "refresh-indicator",
+            style: [
+              refreshControl.props.children.props.style,
+              {
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                zIndex: 1000,
+              },
+            ],
+          })
         );
       }
+
+      return React.cloneElement(refreshControl, {
+        style: StyleSheet.compose(baseStyle, outer),
+        children: children,
+      });
+    }
 
     return (
       <NativeDirectionalScrollView {...props} ref={scrollViewRef}>
