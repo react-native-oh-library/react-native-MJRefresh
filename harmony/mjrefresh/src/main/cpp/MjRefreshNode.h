@@ -38,7 +38,7 @@ namespace rnoh {
     protected:
         RefreshNodeDelegate *m_refreshNodeDelegate;
         static constexpr float REFRESH_NODE_SIZE = 29;
-
+        bool m_refreshingState = false; //是否触发正在刷新状态 
     public:
         MjRefreshNode();
         ~MjRefreshNode();
