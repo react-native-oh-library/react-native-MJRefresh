@@ -1,4 +1,4 @@
-# @react-native-oh-tpl/react-native-mjrefresh
+# @react-native-ohos/react-native-mjrefresh
 This project is based on [react-native-mjrefresh](https://github.com/react-native-studio/react-native-MJRefresh)
 ## Documentation
 [中文](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-MJRefresh.md)
