@@ -32,7 +32,7 @@
 
 
 namespace rnoh {
-    class MjRefreshComponentInstance: public CppComponentInstance<facebook::react::MJRefreshShadowNode>, public RefreshNodeDelegate {
+    class MjRefreshComponentInstance: public CppComponentInstance<facebook::react::MJRefreshShadowNode>, public MjRefreshNodeDelegate {
     private:
         MjRefreshNode m_refreshNode;
         MjRefreshStackNode m_rowStyleNode;

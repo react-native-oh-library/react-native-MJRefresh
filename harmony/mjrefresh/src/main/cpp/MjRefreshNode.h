@@ -26,9 +26,9 @@
 #include "RNOH/arkui/NativeNodeApi.h"
 #include "RNOH/arkui/ArkUINode.h"
 
-class RefreshNodeDelegate {
+class MjRefreshNodeDelegate {
 public:
-    virtual ~RefreshNodeDelegate() = default;
+    virtual ~MjRefreshNodeDelegate() = default;
     virtual void onRefresh(){};
     virtual void pullRefreshStateChange(int32_t state, float_t percent){};
 };
@@ -36,7 +36,7 @@ public:
 namespace rnoh {
     class MjRefreshNode : public ArkUINode {
     protected:
-        RefreshNodeDelegate *m_refreshNodeDelegate;
+        MjRefreshNodeDelegate *m_refreshNodeDelegate;
         static constexpr float REFRESH_NODE_SIZE = 29;
         bool m_refreshingState = false; //是否触发正在刷新状态 
     public:
@@ -47,7 +47,7 @@ namespace rnoh {
         void removeChild(ArkUINode &child);
         void onNodeEvent(ArkUI_NodeEventType eventType, EventArgs& eventArgs);
         MjRefreshNode &setNativeRefreshing(bool isRefreshing);
-        MjRefreshNode &setRefreshNodeDelegate(RefreshNodeDelegate *refreshNodeDelegate);
+        MjRefreshNode &setRefreshNodeDelegate(MjRefreshNodeDelegate *refreshNodeDelegate);
         MjRefreshNode &setRefreshContent(ArkUINode &refreshContent);
     };
 } // namespace rnoh
