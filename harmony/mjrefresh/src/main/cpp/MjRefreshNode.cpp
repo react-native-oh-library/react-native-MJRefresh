@@ -46,7 +46,7 @@ namespace rnoh {
         return *this;
     }
 
-    MjRefreshNode &MjRefreshNode::setRefreshNodeDelegate(RefreshNodeDelegate *refreshNodeDelegate) {
+    MjRefreshNode &MjRefreshNode::setRefreshNodeDelegate(MjRefreshNodeDelegate *refreshNodeDelegate) {
         m_refreshNodeDelegate = refreshNodeDelegate;
         return *this;
     }
