@@ -1,6 +1,6 @@
 {
   "name": "@react-native-ohos/react-native-mjrefresh",
-  "version": "0.8.2-rc.1",
+  "version": "0.8.2-beta.1",
   "description": "",
   "main": "MJRefresh.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/react-native-studio/react-native-MJRefresh.git"
+    "url": "git+https://github.com/react-native-oh-library/react-native-MJRefresh.git"
   },
    "harmony": {
     "alias": "react-native-mjrefresh"
@@ -23,9 +23,9 @@
   "author": "react-native-studio",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/react-native-studio/react-native-MJRefresh/issues"
+    "url": "https://github.com/react-native-oh-library/react-native-MJRefresh/issues"
   },
-  "homepage": "https://github.com/react-native-studio/react-native-MJRefresh#readme",
+  "homepage": "https://github.com/react-native-oh-library/react-native-MJRefresh#readme",
   "dependencies": {
     "prop-types":"*"
   }
